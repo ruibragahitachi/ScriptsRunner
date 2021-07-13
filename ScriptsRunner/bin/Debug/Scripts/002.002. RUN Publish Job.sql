@@ -1,0 +1,1 @@
+EXEC msdb.dbo.sp_start_job N'$JobPublishName$'
