@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31423.177
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptsRunner", "ScriptsRunner\ScriptsRunner.csproj", "{C4C76888-BB20-4318-818A-38ECAFF5A69D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Test|Any CPU = Test|Any CPU
+		Dev|Any CPU = Dev|Any CPU
+		Preprod|Any CPU = Preprod|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4C76888-BB20-4318-818A-38ECAFF5A69D}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{C4C76888-BB20-4318-818A-38ECAFF5A69D}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{C4C76888-BB20-4318-818A-38ECAFF5A69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4C76888-BB20-4318-818A-38ECAFF5A69D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4C76888-BB20-4318-818A-38ECAFF5A69D}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{C4C76888-BB20-4318-818A-38ECAFF5A69D}.Test|Any CPU.Build.0 = Test|Any CPU
+		{C4C76888-BB20-4318-818A-38ECAFF5A69D}.Dev|Any CPU.ActiveCfg = Dev|Any CPU
+		{C4C76888-BB20-4318-818A-38ECAFF5A69D}.Dev|Any CPU.Build.0 = Dev|Any CPU
+		{C4C76888-BB20-4318-818A-38ECAFF5A69D}.Preprod|Any CPU.ActiveCfg = Preprod|Any CPU
+		{C4C76888-BB20-4318-818A-38ECAFF5A69D}.Preprod|Any CPU.Build.0 = Preprod|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C55E253-C585-40CB-85E3-33E25B0EA328}
+	EndGlobalSection
+EndGlobal
