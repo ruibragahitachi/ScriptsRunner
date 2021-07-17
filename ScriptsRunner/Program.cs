@@ -16,6 +16,8 @@ namespace ScriptsRunner
             var env = "--dev";
             var jobPublishName =
                 ConfigurationManager.AppSettings["DevJobPublishName"];
+            var waitForDelay =
+                ConfigurationManager.AppSettings["WaitForDelay"];
             var connectionString =
                 ConfigurationManager.ConnectionStrings["DevConnectionString"].ConnectionString;
             var scriptsPath =
@@ -27,7 +29,7 @@ namespace ScriptsRunner
 
             try
             {
-                WriteToConsole("Database Migration Runner. " +
+                WriteToConsole("Scripts Runner. " +
                                $"Version={typeof(Program).Assembly.GetName().Version}");
 
                 var baseNamespace = typeof(Program).Namespace;
@@ -40,6 +42,7 @@ namespace ScriptsRunner
                 WriteToConsole("\nListing command line args...\n");
                 var variables = new Dictionary<string, string>();
                 variables.Add("JobPublishName", jobPublishName);
+                variables.Add("WaitForDelay", waitForDelay);
                 // See how to use variables in your scripts: 
                 // https://dbup.readthedocs.io/en/latest/more-info/variable-substitution/
 
@@ -48,9 +51,9 @@ namespace ScriptsRunner
                 WriteToConsole("\nListing Config settings...\n");
 
                 WriteToConsole($"Job Publish Name = {jobPublishName}");
+                WriteToConsole($"Wait For Delay = {waitForDelay}");
 
-                var builder = new SqlConnectionStringBuilder(connectionString);
-                builder.Password = "********";
+                var builder = new SqlConnectionStringBuilder(connectionString) {Password = "********"};
                 WriteToConsole($"{"ConnectionString"} = \"{builder}\"");
 
                 WriteToConsole($"Scripts directory = {scriptsPath}");
