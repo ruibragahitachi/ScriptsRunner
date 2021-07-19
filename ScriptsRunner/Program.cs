@@ -23,7 +23,7 @@ namespace ScriptsRunner
             var scriptsPath =
                 ConfigurationManager.AppSettings["ScriptsPath"];
 
-            Arguments(args, ref noWait, ref alwaysRun, ref jobPublishName, ref connectionString);
+            Arguments(args, ref noWait, ref alwaysRun, ref jobPublishName, ref env,ref connectionString);
 
             var exitCode = 0;
 
@@ -49,7 +49,7 @@ namespace ScriptsRunner
                 foreach (var item in args) WriteToConsole($"Command line arg = {item}");
 
                 WriteToConsole("\nListing Config settings...\n");
-
+                WriteToConsole($"Env Name = {env.Replace("--","")}");
                 WriteToConsole($"Job Publish Name = {jobPublishName}");
                 WriteToConsole($"Wait For Delay = {waitForDelay}");
 
@@ -118,11 +118,10 @@ namespace ScriptsRunner
         }
 
         private static void Arguments(string[] args, ref bool noWait, ref bool alwaysRun, ref string jobPublishName,
-            ref string connectionString)
+            ref string env, ref string connectionString)
         {
-            string env;
             foreach (var item in args)
-                switch (item)
+                switch (item.ToLower())
                 {
                     case "--nowait":
                         noWait = true;
