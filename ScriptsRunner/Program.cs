@@ -49,7 +49,7 @@ namespace ScriptsRunner
                 foreach (var item in args) WriteToConsole($"Command line arg = {item}");
 
                 WriteToConsole("\nListing Config settings...\n");
-                WriteToConsole($"Env Name = {env.Replace("--","")}");
+                WriteToConsole($"Env Name = {env.Replace("-","")}");
                 WriteToConsole($"Job Publish Name = {jobPublishName}");
                 WriteToConsole($"Wait For Delay = {waitForDelay}");
 
