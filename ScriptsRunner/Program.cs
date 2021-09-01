@@ -14,8 +14,8 @@ namespace ScriptsRunner
             var noWait = false;
             bool.TryParse(ConfigurationManager.AppSettings["AlwaysRun"], out var alwaysRun);
             var env = "--dev";
-            var jobPublishName =
-                ConfigurationManager.AppSettings["DevJobPublishName"];
+            var jobName =
+                ConfigurationManager.AppSettings["DevJobName"];
             var waitForDelay =
                 ConfigurationManager.AppSettings["WaitForDelay"];
             var connectionString =
@@ -23,7 +23,7 @@ namespace ScriptsRunner
             var scriptsPath =
                 ConfigurationManager.AppSettings["ScriptsPath"];
 
-            Arguments(args, ref noWait, ref alwaysRun, ref jobPublishName, ref env,ref connectionString);
+            Arguments(args, ref noWait, ref alwaysRun, ref jobName, ref env,ref connectionString);
 
             var exitCode = 0;
 
@@ -41,7 +41,7 @@ namespace ScriptsRunner
 
                 WriteToConsole("\nListing command line args...\n");
                 var variables = new Dictionary<string, string>();
-                variables.Add("JobPublishName", jobPublishName);
+                variables.Add("JobName", jobName);
                 variables.Add("WaitForDelay", waitForDelay);
                 // See how to use variables in your scripts: 
                 // https://dbup.readthedocs.io/en/latest/more-info/variable-substitution/
@@ -50,7 +50,7 @@ namespace ScriptsRunner
 
                 WriteToConsole("\nListing Config settings...\n");
                 WriteToConsole($"Env Name = {env.Replace("-","")}");
-                WriteToConsole($"Job Publish Name = {jobPublishName}");
+                WriteToConsole($"Job Name = {jobName}");
                 WriteToConsole($"Wait For Delay = {waitForDelay}");
 
                 var builder = new SqlConnectionStringBuilder(connectionString) {Password = "********"};
@@ -117,7 +117,7 @@ namespace ScriptsRunner
             return exitCode;
         }
 
-        private static void Arguments(string[] args, ref bool noWait, ref bool alwaysRun, ref string jobPublishName,
+        private static void Arguments(string[] args, ref bool noWait, ref bool alwaysRun, ref string jobName,
             ref string env, ref string connectionString)
         {
             foreach (var item in args)
@@ -134,22 +134,22 @@ namespace ScriptsRunner
                         break;
                     case "--dev":
                         env = "--dev";
-                        jobPublishName =
-                            ConfigurationManager.AppSettings["DevJobPublishName"];
+                        jobName =
+                            ConfigurationManager.AppSettings["DevJobName"];
                         connectionString =
                             ConfigurationManager.ConnectionStrings["DevConnectionString"].ConnectionString;
                         break;
                     case "--test":
                         env = "--test";
-                        jobPublishName =
-                            ConfigurationManager.AppSettings["TestJobPublishName"];
+                        jobName =
+                            ConfigurationManager.AppSettings["TestJobName"];
                         connectionString =
                             ConfigurationManager.ConnectionStrings["TestConnectionString"].ConnectionString;
                         break;
                     case "--preprod":
                         env = "--preprod";
-                        jobPublishName =
-                            ConfigurationManager.AppSettings["PreProdJobPublishName"];
+                        jobName =
+                            ConfigurationManager.AppSettings["PreProdJobName"];
                         connectionString =
                             ConfigurationManager.ConnectionStrings["PreProdConnectionString"].ConnectionString;
                         break;
