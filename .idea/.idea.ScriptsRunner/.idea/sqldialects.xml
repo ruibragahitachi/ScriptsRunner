@@ -2,6 +2,5 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/ScriptsRunner/Scripts/sp_get_SQL_job_execution_status.sql" dialect="TSQL" />
-    <file url="file://$PROJECT_DIR$/ScriptsRunner/bin/Release/Scripts/Rename this RUN Publish Job.sql" dialect="TSQL" />
   </component>
 </project>

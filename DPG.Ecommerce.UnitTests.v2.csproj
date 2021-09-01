@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\xunit.core.2.4.1\build\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.4.1\build\xunit.core.props')" />
+  <Import Project="..\packages\xunit.runner.visualstudio.2.4.2\build\net452\xunit.runner.visualstudio.props" Condition="Exists('..\packages\xunit.runner.visualstudio.2.4.2\build\net452\xunit.runner.visualstudio.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9D104FFA-F6B9-45BD-AEFC-AD165FDF5CF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DPG.Ecommerce.UnitTests.v2</RootNamespace>
+    <AssemblyName>DPG.Ecommerce.UnitTests.v2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-DE|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug-DE\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-IE|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug-IE\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test-Debug|AnyCPU'">
+    <OutputPath>bin\Test-Debug\</OutputPath>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test-Debug-DE|AnyCPU'">
+    <OutputPath>bin\Test-Debug-DE\</OutputPath>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test-Debug-IE|AnyCPU'">
+    <OutputPath>bin\Test-Debug-IE\</OutputPath>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Preprod-Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Preprod-Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Preprod-Debug-IE|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Preprod-Debug-IE\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Preprod-Debug-DE|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Preprod-Debug-DE\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-DE|AnyCPU'">
+    <OutputPath>bin\Release-DE\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test-Cloud|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test-Cloud\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev-Cloud|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Dev-Cloud\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Preprod-Cloud|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Preprod-Cloud\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoFixture, Version=4.17.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoFixture.4.17.0\lib\net452\AutoFixture.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoFixture.Xunit2, Version=4.17.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoFixture.Xunit2.4.17.0\lib\net452\AutoFixture.Xunit2.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="BLToolkit.4, Version=4.1.21.0, Culture=neutral, PublicKeyToken=b1d3f6ab3aadaca3, processorArchitecture=MSIL">
+      <HintPath>..\packages\BLToolkit.4.1.21\lib\net40-full\BLToolkit.4.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.FactorySupport, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.FactorySupportFacility.4.1.1\lib\net45\Castle.Facilities.FactorySupport.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.4.1.1\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="DPG.Addressing.Api.Client, Version=11.0.0.259, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DPG.Addressing.Api.Client.11.0.0.259\lib\net45\DPG.Addressing.Api.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="DPG.Addressing.Api.Contracts, Version=11.0.0.259, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DPG.Addressing.Api.Contracts.11.0.0.259\lib\net45\DPG.Addressing.Api.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="DPG.Caching">
+      <HintPath>..\packages\DPG.Caching.1.0.0.22\lib\net451\DPG.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="DPG.Catchment.API.Client, Version=26.0.0.955, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DPG.Catchment.API.Client.26.0.0.955\lib\net451\DPG.Catchment.API.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="DPG.Catchment.API.Client.Contracts, Version=26.0.0.955, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DPG.Catchment.API.Client.26.0.0.955\lib\net451\DPG.Catchment.API.Client.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="DPG.Data, Version=1.0.0.52, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DPG.Data.1.0.0.52\lib\net45\DPG.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="DPG.Ecommerce.EventContracts, Version=2.4.1.1073, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DPG.Ecommerce.EventContracts.2.4.1.1073\lib\DPG.Ecommerce.EventContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="DPG.FeatureToggling, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DPG.FeatureToggling.1.0.0.22\lib\net40\DPG.FeatureToggling.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DPG.Logging, Version=1.0.0.50, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DPG.Logging.1.0.0.50\lib\net451\DPG.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="DPG.Payment.Api.Client, Version=27.1.0.1179, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DPG.Payment.Api.Client.27.1.0.1179\lib\net451\DPG.Payment.Api.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="DPG.Payment.Api.Client.Contracts, Version=27.1.0.1179, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DPG.Payment.Api.Client.27.1.0.1179\lib\net451\DPG.Payment.Api.Client.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="DPG.Text, Version=1.0.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DPG.Text.1.0.0.20\lib\net451\DPG.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="Fare, Version=2.1.0.0, Culture=neutral, PublicKeyToken=ea68d375bf33a7c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fare.2.1.1\lib\net35\Fare.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions, Version=3.2.1.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentAssertions.Core, Version=3.2.1.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.7.0.3\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="HawkNet, Version=1.4.4.0, Culture=neutral, PublicKeyToken=840f8ba19d15c979, processorArchitecture=MSIL">
+      <HintPath>..\packages\HawkNet.1.4.4.0\lib\net45\HawkNet.dll</HintPath>
+    </Reference>
+    <Reference Include="HawkNet.WebApi, Version=1.4.6.0, Culture=neutral, PublicKeyToken=840f8ba19d15c979, processorArchitecture=MSIL">
+      <HintPath>..\packages\HawkNet.WebApi.1.4.6.0\lib\net45\HawkNet.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NSubstitute, Version=2.0.3.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\NSubstitute.2.0.3\lib\net45\NSubstitute.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.abstractions.2.0.2\lib\net35\xunit.abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.assert, Version=2.4.1.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.assert.2.4.1\lib\netstandard1.1\xunit.assert.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.core.2.4.1\lib\net452\xunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.execution.desktop, Version=2.4.1.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.execution.2.4.1\lib\net452\xunit.execution.desktop.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise />
+  </Choose>
+  <ItemGroup>
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Web\API\Tracking\Services\DataLayer\BasketSummaryDataMapperTests.cs" />
+    <Compile Include="Web\API\Tracking\Services\DataLayer\DataFactoryTests.cs" />
+    <Compile Include="Web\API\Tracking\Services\DataLayer\DataLayerBuilderTests.cs" />
+    <Compile Include="Web\API\Tracking\Services\DataLayer\PageLoadBuildStepDirectorTests.cs" />
+    <Compile Include="Web\API\Tracking\Services\DataLayer\ProductDataMapperTests.cs" />
+    <Compile Include="Web\API\Tracking\Services\DataLayer\ProductExtensionsTests.cs" />
+    <Compile Include="Web\API\Tracking\Services\DataLayer\SubstituteExtensions.cs" />
+    <Compile Include="Web\API\Tracking\Services\DataLayer\UserDataMapperTests.cs" />
+    <Compile Include="Application\Address\Command\SaveAddressBookEntryCommandHandlerTest.cs" />
+    <Compile Include="Application\Address\Queries\GetCanOverrideDefaultAddressQueryTest.cs" />
+    <Compile Include="Application\Baskets\Commands\AddVoucherToBasketCommandHandlerTests.cs" />
+    <Compile Include="Application\Baskets\Commands\BasketItemBuilderTests.cs" />
+    <Compile Include="Application\Baskets\Commands\DeleteDealsForDeepLinkCommandHandlerTests.cs" />
+    <Compile Include="Application\Baskets\Queries\GetDeepLinkValidKeyQueryTests.cs" />
+    <Compile Include="Application\Baskets\Queries\IsDealsForDeepLinkAvailableQueryTests.cs" />
+    <Compile Include="Application\Baskets\Queries\GetBasketInfoForUpsellsQueryTests.cs" />
+    <Compile Include="Application\Baskets\Queries\GetCheckoutUpsellsQueryTests.cs" />
+    <Compile Include="Application\Cache\CacheClientServiceTests.cs" />
+    <Compile Include="Application\Cache\Commands\CacheStoreByIdCommandHandlerTests.cs" />
+    <Compile Include="Application\Cache\Commands\CacheStoreWelcomeMessageUpdateCommandHandlerTests.cs" />
+    <Compile Include="Application\Customers\Commands\MakeAddressBookEntryTheDefaultCommandHandlerTests.cs" />
+    <Compile Include="Application\Customers\Queries\GetAddressBookEntriesForCustomerQueryTest.cs" />
+    <Compile Include="Application\DriverTip\Queries\GetOrderByTipIdQueryTest.cs" />
+    <Compile Include="Application\FeatureToggles\CookiePolicyFeatureTests.cs" />
+    <Compile Include="Application\FeatureToggles\DriverTippingFeatureTests.cs" />
+    <Compile Include="Application\FeatureToggles\YextRedirectEnabledFeatureTests.cs" />
+    <Compile Include="Application\FeatureToggles\VeganActiveFeatureTests.cs" />
+    <Compile Include="Application\Fulfilments\AvailableFulfilmentTimesServiceTests.cs" />
+    <Compile Include="Application\Payments\Commands\PlaceOrderDigitalWalletCommandHandlerTests.cs" />
+    <Compile Include="Application\Routing\Queries\GetYextStoreUrlQueryTests.cs" />
+    <Compile Include="Application\Stores\Queries\GetPostcodeFulfilmentQueryTests.cs" />
+    <Compile Include="Application\InCarCollection\MapInCarTimeToIntervalTimeTests.cs" />
+    <Compile Include="Application\Payments\Commands\AuthenticatePayerCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\InitiateAuthenticationCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\PreAuthoriseThreeDSecureTwoCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Queries\GetAuthenticationStatusQueryTests.cs" />
+    <Compile Include="Application\InCarCollection\Queries\GetInCarCollectionIntervalTimesQueryHandlerTests.cs" />
+    <Compile Include="Business\Domain\BasketDataMapperTests.cs" />
+    <Compile Include="Business\Rules\Discount\Rules\VoucherTests.cs" />
+    <Compile Include="Application\InCarCollection\InCarCollectionServiceTests.cs" />
+    <Compile Include="Configuration\Routing\StoreSeoRouteHandlerTests.cs" />
+    <Compile Include="Engines\AlcoholValidationEngineTests.cs" />
+    <Compile Include="Infrastructure\AccountActivityAuditing\Repositories\AccountActivityRepositoryTests.cs" />
+    <Compile Include="Infrastructure\Mapping\Resolvers\GetCatchmentROIResponseMapperTests.cs" />
+    <Compile Include="Infrastructure\Payments\Commands\TransactionPayerAuthenticationValidateCommandHandlerTests.cs" />
+    <Compile Include="Infrastructure\Payments\Commands\TransactionPayerAuthenticationCheckEnrollmentCommandHandlerTests.cs" />
+    <Compile Include="Infrastructure\Payments\Commands\TransactionPayerAuthenticationSetupCommandHandlerTests.cs" />
+    <Compile Include="Infrastructure\Repository\YextStoreUrlRepositoryTests.cs" />
+    <Compile Include="Services\MobileApiServiceTests\BasketServiceTests.cs" />
+    <Compile Include="Services\MobileApiServiceTests\Builders\MockStoreBuilder.cs" />
+    <Compile Include="Services\MobileApiServiceTests\Mapping\AllergensMappingTests.cs" />
+    <Compile Include="Services\MobileApiServiceTests\Mapping\BasketValidationMapperTests.cs" />
+    <Compile Include="Services\PaymentApiServiceTests\CyberSourceDigitalWalletFulfilOrderRequestHandlerTests.cs" />
+    <Compile Include="Services\PizzaServiceTests\BasketObjectMapperTests.cs" />
+    <Compile Include="Services\PizzaServiceTests\Mappers\DiscountErrorsMapperTests.cs" />
+    <Compile Include="Services\PizzaServiceTests\Payment\Handlers\CardFulfilOrderRequestHandlerTests.cs" />
+    <Compile Include="Services\PizzaServiceTests\Payment\Handlers\CashFulfilOrderRequestHandlerTests.cs" />
+    <Compile Include="Services\PizzaServiceTests\Payment\Handlers\SavedCardFulfilOrderRequestHandlerTests.cs" />
+    <Compile Include="Services\PizzaServiceTests\Services\FulfilmentTimesServiceTests.cs" />
+    <Compile Include="Services\Wrapper\WizardServiceTest.cs" />
+    <Compile Include="Services\Services\InCarCollectionValidationServiceTests.cs" />
+    <Compile Include="Services\Services\MenuDetailsServiceTests.cs" />
+    <Compile Include="State\IpAddressServiceTests.cs" />
+    <Compile Include="Application\TML\TMLServiceTests.cs" />
+    <Compile Include="Infrastructure\TML\TMLPhoneMapperTests.cs" />
+    <Compile Include="Infrastructure\TML\TMLObjectMaperTests.cs" />
+    <Compile Include="Web\API\Basket\BasketApiControllerTests.cs" />
+    <Compile Include="Web\API\Basket\Mapping\BasketMappingProfileTests.cs" />
+    <Compile Include="Web\API\Customer\AddressBookControllerTests.cs" />
+    <Compile Include="Web\API\Customer\CustomerApiControllerTests.cs" />
+    <Compile Include="Web\API\Customer\Mapping\CustomerMappingProfileTests.cs" />
+    <Compile Include="Web\API\Customer\SavedCardsAPIControllerTests.cs" />
+    <Compile Include="Web\API\Customer\Services\Implementations\AddressBookServiceTests.cs" />
+    <Compile Include="Web\API\Customer\Services\Implementations\CustomerServiceTests.cs" />
+    <Compile Include="Web\API\Location\LocationControllerTests.cs" />
+    <Compile Include="Web\API\Location\Mapping\LocationMappingProfileTests.cs" />
+    <Compile Include="Web\API\Location\Services\Implementations\LocationServiceTests.cs" />
+    <Compile Include="Web\API\Store\StoreApiControllerTests.cs" />
+    <Compile Include="Web\Configuration\CentralizedPrefixProviderTests.cs" />
+    <Compile Include="Web\Configuration\Installers\HttpConfigurationInstallerTests.cs" />
+    <Compile Include="Web\Controllers\Payment\PaymentDigitalWalletControllerTests.cs" />
+    <Compile Include="Web\Controllers\Payment\PaymentOptionsControllerTests.cs" />
+    <Compile Include="Web\Controllers\Payment\PaymentVcoControllerTests.cs" />
+    <Compile Include="Web\Controllers\Tip\TipControllerTests.cs" />
+    <Compile Include="Services\Mapper\TipReceiptModelMapperTests.cs" />
+    <Compile Include="Web\Filters\API\AntiForgeryTokenApiFilterAttributeTests.cs" />
+    <Compile Include="Web\Filters\API\AuthorizedRequiredAttributeTests.cs" />
+    <Compile Include="Web\Filters\API\StoreIsRequiredAttributeTests.cs" />
+    <Compile Include="Web\Mappers\BasketToBasketModelMapperTest.cs" />
+    <Compile Include="Web\OrderDateTimeFormatterTest.cs" />
+    <Compile Include="Web\UI\Components\Allergens\AllergensControllerTests.cs" />
+    <Compile Include="Web\UI\Components\Footer\Queries\GetFooterSectionsQueryTests.cs" />
+    <Compile Include="Web\UI\Components\GooglePay\GooglePaySettingsTests.cs" />
+    <Compile Include="Web\UI\Components\PizzaCustomisation\Mappers\ProductCategoryMapperTests.cs" />
+    <Compile Include="Web\UI\Components\Menu\Models\MenuSubcategoryModelTests.cs" />
+    <Compile Include="Business\Service\AddressUtilTests.cs" />
+    <Compile Include="Application\Payments\Factories\PayPalAddressFactoryTests.cs" />
+    <Compile Include="Contracts\AddressDtoTests.cs" />
+    <Compile Include="Application\MapBasketToOrder\MapBasketToOrderServiceTests.cs" />
+    <Compile Include="Application\Payments\Commands\AuthorizeApplePayPaymentCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\AuthorizeCardPaymentCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\AuthorizeThreeDSecureCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\CashPaymentRequestCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\CreatePaymentRecordCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\DoCardPaymentRequestCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\DoExpressCheckoutCommandHandlerTests .cs" />
+    <Compile Include="Application\Payments\Commands\DoPayPalCheckoutCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\FulfilCardPaymentCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\GetExpressCheckoutQueryHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\InitializeTemporarySavedCardTokenCommadHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\ProcessOrderPaymentCompletedCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\SendCardNotificationCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\SettleCardPaymentCommandHandlerTest.cs" />
+    <Compile Include="Application\Payments\Commands\SetupCardCapturecommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\SetupPayPalPaymentMethodCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\SetupSimpleCardCapturecommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Commands\TransactionCardCreateCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\DataCashStatusExtensionsTests.cs" />
+    <Compile Include="Application\Payments\Factories\AddressFactoryTests.cs" />
+    <Compile Include="Application\Payments\Queries\GetCardInformationQueryTests.cs" />
+    <Compile Include="Application\Payments\Queries\GetIsOrderPaidQueryHandlerTests.cs" />
+    <Compile Include="Application\Payments\Queries\GetTemporarySavedCardInformationQueryTests.cs" />
+    <Compile Include="Application\Payments\Queries\GetTransactionInformationForCardPaymentQueryTests.cs" />
+    <Compile Include="Application\Payments\Queries\LogNewPaymentDetailsHandlerTests.cs" />
+    <Compile Include="Application\Payments\Queries\ProcessDummyTransactionCommandHandlerTests.cs" />
+    <Compile Include="Application\Payments\Queries\ValidateThreeDSecureQueryTests.cs" />
+    <Compile Include="Application\Payments\VisaCheckoutEnabledFeatureTests.cs" />
+    <Compile Include="Application\Vouchers\Queries\GetVouchersOnlineQueryTests.cs" />
+    <Compile Include="Business\Domain\AvailableFulfilmentTimesProcessor\DeliveryOpenCloseTests.cs" />
+    <Compile Include="Business\Domain\BasketPaymentSnapShotTests.cs" />
+    <Compile Include="Business\Domain\FulfilmentTests.cs" />
+    <Compile Include="Business\Domain\Logic\AvailableFulfilmentTimesProcessorTests.cs" />
+    <Compile Include="Business\Domain\Menu_NextTimeBasedChangeTests.cs" />
+    <Compile Include="Business\Domain\Model\BasketTests.cs" />
+    <Compile Include="Business\Domain\Model\BasketTotalsTests.cs" />
+    <Compile Include="Business\Domain\Model\DeliveryChargeTests.cs" />
+    <Compile Include="Business\Domain\Model\DiscountRule\FixedPriceProductDiscountRuleTests.cs" />
+    <Compile Include="Business\Domain\Model\EircodeStrategyTests.cs" />
+    <Compile Include="Business\Domain\Model\FulfilmentTests.cs" />
+    <Compile Include="Business\Domain\Model\MealDealDiscountTests.cs" />
+    <Compile Include="Business\Domain\Model\StoreLocationTests.cs" />
+    <Compile Include="Business\Domain\Model\StoreTests.cs" />
+    <Compile Include="Business\Domain\StoreStatusTests.cs" />
+    <Compile Include="Business\Domain\TradingDayTests.cs" />
+    <Compile Include="Business\Services\DinersClubBinRangeValidatorTests.cs" />
+    <Compile Include="Configuration\Bundles\BundleFileMatchingExtensionsTests.cs" />
+    <Compile Include="Configuration\Bundles\TestVirtualFile.cs" />
+    <Compile Include="Configuration\ChangeCulture.cs" />
+    <Compile Include="Configuration\DisposableFixture.cs" />
+    <Compile Include="Configuration\Installers\Application\CommandsInstallerTests.cs" />
+    <Compile Include="Configuration\Installers\Application\QueriesInstallerTests.cs" />
+    <Compile Include="Configuration\Installers\Infrastructure\CrossCuttingResolverTests.cs" />
+    <Compile Include="Configuration\Installers\InstallerExtensionsTests.cs" />
+    <Compile Include="Configuration\Installers\TestInstaller1.cs" />
+    <Compile Include="Configuration\Installers\TestInstaller2.cs" />
+    <Compile Include="Configuration\Installers\TestInstaller3.cs" />
+    <Compile Include="Configuration\Installers\UseAssemblyTests.cs" />
+    <Compile Include="Configuration\StartupTask\AutoMapperTaskTests.cs" />
+    <Compile Include="Configuration\TestExtensions.cs" />
+    <Compile Include="Contracts\Stores\GetProductSkuMasksForStoreResultTests.cs" />
+    <Compile Include="Core\Notifications\NotificationFactoryTests.cs" />
+    <Compile Include="Email\OrderConfirmationEmailTests.cs" />
+    <Compile Include="Infrastructure\Banners\Scheduler\BannerSchedulerTest.cs" />
+    <Compile Include="Infrastructure\Banners\Scheduler\DbBannerReaderTest.cs" />
+    <Compile Include="Infrastructure\HttpClientPool\HttpClientPoolBuilderTests.cs" />
+    <Compile Include="Infrastructure\Fulfilments\Commands\ConvertToAsapCommandHandlerTests.cs" />
+    <Compile Include="Infrastructure\Mapping\Resolvers\BasketChangeProductItemResolverTests.cs" />
+    <Compile Include="Infrastructure\Notifications\Factories\ImageModelFactoryTests.cs" />
+    <Compile Include="Infrastructure\Notifications\Factories\OrderConfirmationEmailFactoryTests.cs" />
+    <Compile Include="Infrastructure\Repository\PizzaTrackerRepositoryTests.cs" />
+    <Compile Include="Infrastructure\Stores\Queries\GetDynamicServiceTimesForStoreQueryTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CacheService\CacheServiceTests.cs" />
+    <Compile Include="Services\Mapper\BannerObjectMapperTests.cs" />
+    <Compile Include="Services\Mapper\BasketObjectMapperTests.cs" />
+    <Compile Include="Services\Mapper\FeedbackObjectMapperTests.cs" />
+    <Compile Include="Services\Mapper\MealDealGroupObjectMapperTests.cs" />
+    <Compile Include="Services\Mapper\DiscountDataMapperTests.cs" />
+    <Compile Include="Services\Mapper\MenuObjectMapperTests.cs" />
+    <Compile Include="Services\Mapper\PasswordStrengthObjectMapperTests.cs" />
+    <Compile Include="Services\Mapper\PaymentDetailsObjectMapperTests.cs" />
+    <Compile Include="Services\Mapper\ProductSurchargeMapperTests.cs" />
+    <Compile Include="Services\Mapper\TransactionDetailsObjectMapperTests.cs" />
+    <Compile Include="Services\Mapper\VoucherObjectMapperTests.cs" />
+    <Compile Include="Services\Services\StoreDataSet.cs" />
+    <Compile Include="Services\Services\StoreServiceTests.cs" />
+    <Compile Include="State\CookieManagement\CookieDataExtensionsTests.cs" />
+    <Compile Include="State\CookieManagement\CookieDataRepositoryTests.cs" />
+    <Compile Include="Web\Configuration\FindTypes.cs" />
+    <Compile Include="Web\Configuration\Installers\FeatureTogglingInstallerTests.cs" />
+    <Compile Include="Web\Configuration\Markets\IrelandMarketConfigurationTests.cs" />
+    <Compile Include="Web\Configuration\Markets\MarketConfigurationTests.cs" />
+    <Compile Include="Web\Configuration\Markets\SwissMarketTests.cs" />
+    <Compile Include="Web\Configuration\Markets\UnitedKingdomMarketTests.cs" />
+    <Compile Include="Web\Configuration\Routing\StoreMenuSeoRouteHandlerTests.cs" />
+    <Compile Include="Web\Configuration\TypeFinder.cs" />
+    <Compile Include="Web\Configuration\WebToContractsMappingProfileTests.cs" />
+    <Compile Include="Web\Configuration\WindsorContainerTestExtensions.cs" />
+    <Compile Include="Web\Configuration\WindsorControllerFactoryTests.cs" />
+    <Compile Include="Web\Controllers\Banners\BannerControllerTests.cs" />
+    <Compile Include="Web\Controllers\Fulfilment\FulfilmentLeaveControllerTests.cs" />
+    <Compile Include="Web\Controllers\MyDominos\MyDominosControllerTests.cs" />
+    <Compile Include="Web\Controllers\Payment\PaymentControllerTests.cs" />
+    <Compile Include="Web\Controllers\PersonalDetails\PersonalDetailsControllerTests.cs" />
+    <Compile Include="Web\Extensions\UrlHelpersTests.cs" />
+    <Compile Include="Web\Filters\DeepLinkingFilterAttributeTests.cs" />
+    <Compile Include="Web\Mappers\AddressBookEntryMappingTests.cs" />
+    <Compile Include="Web\Mappers\AutoMapperExtensionsTests.cs" />
+    <Compile Include="Web\Mappers\CheeseMapperTests.cs" />
+    <Compile Include="Infrastructure\Notifications\Factories\LinksModelFactoryTests.cs" />
+    <Compile Include="Web\Mappers\PizzaCustomisationMapperTests.cs" />
+    <Compile Include="Web\Mappers\ToppingMapperTests.cs" />
+    <Compile Include="Web\Mappers\VoucherErrorTranslatorTests.cs" />
+    <Compile Include="Web\UI\Components\Account\Commands\InitializeSessionForCustomerCommandHandlerTests.cs" />
+    <Compile Include="Web\UI\Components\Account\Commands\ProcessLoginCustomerCommandHandlerTests.cs" />
+    <Compile Include="Web\UI\Components\Account\Commands\SetFulfilmentInSessionCommandHandlerTests.cs" />
+    <Compile Include="Web\UI\Components\Account\Commands\SetStoreByDefaultAddressCommadHandlerTests.cs" />
+    <Compile Include="Web\UI\Components\Account\Controller\AccountControllerTests.cs" />
+    <Compile Include="Web\UI\Components\Account\Factories\FailedLoginViewModelFactoryTests.cs" />
+    <Compile Include="Web\UI\Components\Account\Validators\LoginModelValidatorTests.cs" />
+    <Compile Include="Web\UI\Components\Account\Validators\RegisterCustomerCommandValidatorTests.cs" />
+    <Compile Include="Web\UI\Components\Cache\Controller\CacheControllerTests.cs" />
+    <Compile Include="Web\UI\Components\CheckoutBasket\Mappers\BaseMapperTests.cs" />
+    <Compile Include="Web\UI\Components\CheckoutBasket\Mappers\CheckoutBasketItemViewModelMapperTests.cs" />
+    <Compile Include="Web\UI\Components\CheckoutBasket\Mappers\CheckoutBasketViewModelMapperTests.cs" />
+    <Compile Include="Web\UI\Components\CheckoutBasket\Mappers\MapPizzaToppingChangesTests.cs" />
+    <Compile Include="Web\UI\Components\CheckoutBasket\Mappers\NewCheckoutBasketViewModelMapperTests.cs" />
+    <Compile Include="Web\UI\Components\CheckoutBasket\Mappers\UnqualifiedVoucherViewModelMapperTests.cs" />
+    <Compile Include="Web\UI\Components\FulfilmentOptions\FulfilmentOptionsControllerTests.cs" />
+    <Compile Include="Web\UI\Components\Navigation\NavigationControllerTests.cs" />
+    <Compile Include="Web\UI\Components\PizzaCustomisation\PizzaCustomisationControllerTests.cs" />
+    <Compile Include="Web\UI\Components\SavedPaymentManagement\SavedPaymentManagementControllerTests.cs" />
+    <Compile Include="Web\UI\Components\Shared\Queries\GetMenuXmlQueryTests.cs" />
+    <Compile Include="Web\UI\Components\Shared\Services\PaymentCardServiceTests.cs" />
+    <Compile Include="Web\UI\Components\StoreFinderMap\StoreLocatorServiceTests.cs" />
+    <Compile Include="Web\UI\Pages\Checkout\Factories\CheckoutLoginViewModelFactoryTests.cs" />
+    <Compile Include="Web\UI\Pages\Deals\DealsControllerTests.cs" />
+    <Compile Include="Web\UI\Pages\Deals\Mappers\DealBuilderMapperTests.cs" />
+    <Compile Include="Web\UI\Pages\Deals\Mappers\MealDealViewModelMapperTests.cs" />
+    <Compile Include="Web\UI\Pages\Deals\Mappers\StoreDealsMapperTests.cs" />
+    <Compile Include="Web\UI\Pages\Legal\Builders\StaticContentExecuteQueryFactoryTests.cs" />
+    <Compile Include="Web\UI\Pages\Legal\Builders\StaticViewModelFactoryTests.cs" />
+    <Compile Include="Web\UI\Pages\Legal\Queries\GetContentFromDatabaseQueryTests.cs" />
+    <Compile Include="Web\UI\Pages\Legal\Queries\GetContentQueryTests.cs" />
+    <Compile Include="Web\UI\Pages\Legal\Queries\GetStaticViewModelQueryTests.cs" />
+    <Compile Include="Web\UI\Pages\MyDominos\Queries\SummaryQueryTests.cs" />
+    <Compile Include="Web\UI\Pages\Optimizely\OptimizelyControllerTests.cs" />
+    <Compile Include="Web\UI\Pages\Receipt\Builders\ReceiptViewModelBuilderTests.cs" />
+    <Compile Include="Web\UI\Pages\Shared\Builder\CheckoutCustomerViewModelBuilderTests.cs" />
+    <Compile Include="Web\UI\Pages\TestDataHelpers\BannerHelper.cs" />
+    <Compile Include="Web\UI\Pages\OrderConfirmation\Builders\ConfirmationBasketItemViewModelMapperTests.cs" />
+    <Compile Include="Web\UI\Pages\OrderConfirmation\Builders\ConfirmationBasketViewModelMapperTests.cs" />
+    <Compile Include="Web\UI\Pages\OrderConfirmation\Builders\ThankYouViewModelBuilderTests.cs" />
+    <Compile Include="Web\UI\Pages\User\Factories\RegistrationViewModelFactoryTests.cs" />
+    <Compile Include="Web\UI\Pages\User\Factories\LoginViewModelFactoryTests.cs" />
+    <Compile Include="Web\UI\Pages\Welcome\Builders\FulfilmentContainerViewModelBuilderTests.cs" />
+    <Compile Include="Web\UI\Pages\Welcome\Builders\WelcomeViewModelFactoryTests.cs" />
+    <Compile Include="Web\UI\Pages\Welcome\Queries\GetKnownFulfilmentToOverrideQueryTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\BasketSummaryDataMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\DataFactoryTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\DataLayerBuilderTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\PageLoadBuildStepDirectorTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductDataMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductExtensionsTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\BaseIngredientMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\BasePizzaMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\VeganPizzaMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\GlutenFreePizzaMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\StandardSideTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\SaladSideMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\SaladDressingSideMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\GarlicBreadSideMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\DoughBallSideMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\DipSideMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\ChickenSideMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\SpecialityPizzaMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\HalfAndHalfPizzaMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\GourmetPizzaMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\CrustMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\CreateYourOwnPizzaMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\ComboSideMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\ToppingMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\SauceMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\CheeseMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\StandardDrinkMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\BaseProductMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\CakeMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\CharityMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\CookieMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\AlcoholicDrinkMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\StandardDessertMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\ProductMappers\IceCreamDessertMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\SubstituteExtensions.cs" />
+    <Compile Include="Web\UI\Tagging\DataLayer\UserDataMapperTests.cs" />
+    <Compile Include="Web\UI\Tagging\TrackingControllerTests.cs" />
+    <Compile Include="Web\UI\Tagging\TypeExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application\DPG.Ecommerce.Application.csproj">
+      <Project>{0f108304-dd5a-4532-bd8c-b02329ed4913}</Project>
+      <Name>DPG.Ecommerce.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\data\DPG.Legacy.Data.csproj">
+      <Project>{DA0C406E-BADE-4F2D-A25C-3882651EF26D}</Project>
+      <Name>DPG.Legacy.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.DiscountSurcharge\DPG.DiscountSurcharge.csproj">
+      <Project>{e2632bde-b9dd-4b0d-85c4-31b9a125f2b2}</Project>
+      <Name>DPG.DiscountSurcharge</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.EcommContent.Data\DPG.EcommContent.Data.csproj">
+      <Project>{7167f849-3936-48fc-8637-92733849df97}</Project>
+      <Name>DPG.EcommContent.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.EcommContent\DPG.EcommContent.Client.csproj">
+      <Project>{15C930B7-8ECE-4115-A361-87905B1458C9}</Project>
+      <Name>DPG.EcommContent.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Api.Client\DPG.Ecommerce.Api.Client.csproj">
+      <Project>{D6EDE462-6B30-4F21-9519-2E4518B06FAB}</Project>
+      <Name>DPG.Ecommerce.Api.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Builders\DPG.Ecommerce.Builders.csproj">
+      <Project>{f55d8211-aba7-4642-80d9-f684c1a4c225}</Project>
+      <Name>DPG.Ecommerce.Builders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Business.Rules\DPG.Ecommerce.Business.Rules.csproj">
+      <Project>{C6105DA1-BA20-4DA0-8370-14E81E8093BA}</Project>
+      <Name>DPG.Ecommerce.Business.Rules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Business\DPG.Ecommerce.Business.csproj">
+      <Project>{25217eed-fce3-4475-ad16-c2f09bbb0047}</Project>
+      <Name>DPG.Ecommerce.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Caching\DPG.Ecommerce.Caching.csproj">
+      <Project>{7F197CB2-A657-4577-B5EA-B27601CA8A91}</Project>
+      <Name>DPG.Ecommerce.Caching</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Executors\DPG.Ecommerce.Executors.csproj">
+      <Project>{6104e4ae-516e-4544-8c9d-c26e76adc33f}</Project>
+      <Name>DPG.Ecommerce.Executors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.ConfigurationSettings\DPG.Ecommerce.ConfigurationSettings.csproj">
+      <Project>{735AB9C1-A796-446A-AAD4-7CDE7B08492A}</Project>
+      <Name>DPG.Ecommerce.ConfigurationSettings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Configuration\DPG.Ecommerce.Configuration.csproj">
+      <Project>{41e4fafe-338c-48ba-a087-d67ffc82ebde}</Project>
+      <Name>DPG.Ecommerce.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Constants\DPG.Ecommerce.Constants.csproj">
+      <Project>{5A4EE20F-C4CC-4236-842D-543D3537B89B}</Project>
+      <Name>DPG.Ecommerce.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Contracts\DPG.Ecommerce.Contracts.csproj">
+      <Project>{11de89a0-f291-42a3-9aaf-4855db731764}</Project>
+      <Name>DPG.Ecommerce.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Core\DPG.Ecommerce.Core.csproj">
+      <Project>{0f0e44cd-c5d4-4428-b55e-132ab34c33a4}</Project>
+      <Name>DPG.Ecommerce.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Data.Access\DPG.Ecommerce.Data.Access.csproj">
+      <Project>{E0C70A0D-4E38-4842-80D0-4BA3118EF87F}</Project>
+      <Name>DPG.Ecommerce.Data.Access</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Data.EcommerceDatabase\DPG.Ecommerce.Data.csproj">
+      <Project>{44713E02-4A6D-446B-A5B6-C47F11171563}</Project>
+      <Name>DPG.Ecommerce.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Data.Entities\DPG.Ecommerce.Data.Entities.csproj">
+      <Project>{4c4fa508-c0c2-4909-b4e6-a6d23b420210}</Project>
+      <Name>DPG.Ecommerce.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Domain\DPG.Ecommerce.Domain.csproj">
+      <Project>{ec196874-b928-47a4-bdc3-d54ced900245}</Project>
+      <Name>DPG.Ecommerce.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Engines\DPG.Ecommerce.Engines.csproj">
+      <Project>{b4cd471a-e24c-43fa-95e1-11936a61c453}</Project>
+      <Name>DPG.Ecommerce.Engines</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Enumerations\DPG.Ecommerce.Enumerations.csproj">
+      <Project>{581D7636-7396-4BD0-A983-F329A5EE7FDB}</Project>
+      <Name>DPG.Ecommerce.Enumerations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Events\DPG.Ecommerce.Events.csproj">
+      <Project>{16885175-d6a0-49d4-ad32-1b46c5dc76f4}</Project>
+      <Name>DPG.Ecommerce.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Globalisation\DPG.Ecommerce.Globalisation.csproj">
+      <Project>{48842700-16B4-4413-AD31-E747EB0EFD07}</Project>
+      <Name>DPG.Ecommerce.Globalisation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Infrastructure\DPG.Ecommerce.Infrastructure.csproj">
+      <Project>{7ad2a3fb-863c-45b1-ac06-6a6f219122c3}</Project>
+      <Name>DPG.Ecommerce.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Legacy.ApiClientWrapper\DPG.Ecommerce.Legacy.ApiClientWrapper.csproj">
+      <Project>{EA86FB91-673A-4C64-B970-F0C860C82F0A}</Project>
+      <Name>DPG.Ecommerce.Legacy.ApiClientWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Logging\DPG.Ecommerce.Logging.csproj">
+      <Project>{7AB99D97-959F-4368-9446-594B069638B8}</Project>
+      <Name>DPG.Ecommerce.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.PaymentGateway\DPG.Ecommerce.PaymentGateway.csproj">
+      <Project>{537f6f3a-6d53-4a58-947d-5e65fc271d91}</Project>
+      <Name>DPG.Ecommerce.PaymentGateway</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Protection\DPG.Ecommerce.Protection.csproj">
+      <Project>{E6B46295-D092-42B1-8385-7EC8AE93C7A4}</Project>
+      <Name>DPG.Ecommerce.Protection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Resources\DPG.Ecommerce.Resources.csproj">
+      <Project>{5D66F9BA-33FA-4A12-9FC2-6006F8DFAE63}</Project>
+      <Name>DPG.Ecommerce.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.State\DPG.Ecommerce.State.csproj">
+      <Project>{068ABDFA-ABBE-4FB0-9437-48E0A62387B9}</Project>
+      <Name>DPG.Ecommerce.State</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.UnitTests\DPG.Ecommerce.UnitTests.csproj">
+      <Project>{05DD3667-D22D-4D44-AF90-56C74BB42993}</Project>
+      <Name>DPG.Ecommerce.UnitTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Ecommerce.Web\DPG.Ecommerce.Web.csproj">
+      <Project>{F78A9EC7-9C73-4349-9D1B-BBF53DE4DFFA}</Project>
+      <Name>DPG.Ecommerce.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Legacy.Business\DPG.Legacy.Business.csproj">
+      <Project>{15953d4c-683b-46a6-b971-1dd34279bfe8}</Project>
+      <Name>DPG.Legacy.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Notification.Emails\DPG.Notification.Emails.csproj">
+      <Project>{9da49578-d5b1-420f-882c-f89dc4aaf02e}</Project>
+      <Name>DPG.Notification.Emails</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DPG.Promotion\DPG.Promotion.csproj">
+      <Project>{FBE1EFC6-8827-46D5-9A5A-07C626F4F536}</Project>
+      <Name>DPG.Promotion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebService\DPG.Legacy.WebServices.csproj">
+      <Project>{8b93f61a-e760-43d2-ad41-e964971f6166}</Project>
+      <Name>DPG.Legacy.WebServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Configuration\app.config" />
+    <None Include="Configuration\packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Email\packages.config" />
+    <None Include="FeatureToggling.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="State\Encryption\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\xunit.runner.visualstudio.2.4.2\build\net452\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.visualstudio.2.4.2\build\net452\xunit.runner.visualstudio.props'))" />
+    <Error Condition="!Exists('..\packages\xunit.core.2.4.1\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.4.1\build\xunit.core.props'))" />
+    <Error Condition="!Exists('..\packages\xunit.core.2.4.1\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.4.1\build\xunit.core.targets'))" />
+  </Target>
+  <Import Project="..\packages\xunit.core.2.4.1\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.4.1\build\xunit.core.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
